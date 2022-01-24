@@ -1,5 +1,19 @@
 
 
+export function loadBooks(payload) {
+    return (dispatch, getState) => {
+        fetch('https://israfil-cse.github.io/book-self-api/books.json')
+            .then(res => res.json())
+            .then(data => {
+                dispatch({
+                    type: 'LOAD_BOOKS',
+                    payload : data
+                })
+            })
+    }
+
+}
+
 export function addToReadingList(payload) {
     return {
         type: 'ADD_TO_READING_LIST',

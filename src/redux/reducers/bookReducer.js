@@ -1,8 +1,6 @@
-import fakeBooks from '../../fakeData/books.json';
-
 
 const initialState = {
-    discover: fakeBooks,
+    discover: [],
     readingList: [],
     finishedList: [],
 }
@@ -10,6 +8,15 @@ const initialState = {
 function bookReducer(state = initialState, action) {
 
     switch (action.type) {
+        case 'LOAD_BOOKS':
+            {
+                const newState = {
+                    ...state,
+                    discover : action.payload
+                };
+                return newState;
+            }
+
         case 'ADD_TO_READING_LIST':
             {
                 const newState = { ...state, readingList: [...state.readingList, action.payload] };

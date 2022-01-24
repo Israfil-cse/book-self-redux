@@ -4,7 +4,7 @@ import {
   HiMinusCircle,
   HiCheckCircle
 } from 'react-icons/hi';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { addTofhinisingList, addToReadingList, removeFromFinishedList, removeFromReadingList } from "../../redux/actions/bookAction";
 import styles from './book.module.css'
@@ -14,6 +14,9 @@ const SingleBook = (props) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { title, author, coverImageUrl, synopsis } = props.book;
+
+ 
+
 
   return (
     <div className='card d-flex mb-3 p-3'
